@@ -3,13 +3,20 @@ package com.example.listapplication;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.ListView;
 
 public class ListActivity extends Activity {
+	
+	TimeTrackerAdapter timeTrackerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        ListView listView = (ListView)findViewById(R.id.times_list);
+        timeTrackerAdapter = new TimeTrackerAdapter();
+        //Attach Adapter to the ListView
+        listView.setAdapter(timeTrackerAdapter);
     }
 
 
