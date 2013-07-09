@@ -25,13 +25,15 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f080003;
+        public static final int add_time_menu_item=0x7f080004;
         public static final int notes_view=0x7f080002;
         public static final int time_view=0x7f080001;
         public static final int times_list=0x7f080000;
     }
     public static final class layout {
         public static final int activity_list=0x7f030000;
-        public static final int time_list_item=0x7f030001;
+        public static final int add_time=0x7f030001;
+        public static final int time_list_item=0x7f030002;
     }
     public static final class menu {
         public static final int list=0x7f070000;
