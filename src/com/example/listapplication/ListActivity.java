@@ -10,6 +10,8 @@ import android.widget.ListView;
 public class ListActivity extends Activity {
 	
 	TimeTrackerAdapter timeTrackerAdapter;
+	
+	private final int ADD_TIME_ACTIVITY = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +35,30 @@ public class ListActivity extends Activity {
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
     	if(item.getItemId() == R.id.add_time_menu_item){
     		Intent intent = new Intent(this , AddTimeActivity.class);
-    		startActivity(intent);
+    		startActivityForResult(intent, ADD_TIME_ACTIVITY);
     		
     		return true;
     	}
     	return super.onMenuItemSelected(featureId, item);
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	// TODO Auto-generated method stub
+    	if(requestCode == ADD_TIME_ACTIVITY && requestCode == RESULT_OK){
+    		String time = data.getStringExtra("time");
+    		
+    		String note = data.getStringExtra("note");
+    		
+    		
+    		timeTrackerAdapter.addTimeRecord(new TimeRecord(time,note));
+    		
+    		timeTrackerAdapter.notifyDataSetChanged();
+    		
+    	}
+    	
+    	
+    	super.onActivityResult(requestCode, resultCode, data);
     }
     
 }
