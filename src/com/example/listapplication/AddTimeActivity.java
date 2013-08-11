@@ -30,7 +30,7 @@ public class AddTimeActivity extends Activity {
 		
 		intent.putExtra("note", text.getText().toString());
 		
-		this.setResult(RESULT_OK);
+		this.setResult(RESULT_OK,intent);
 		finish();
 	}
 
